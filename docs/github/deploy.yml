@@ -1,0 +1,37 @@
+# Publishes the site to GitHub Pages every time you upload a new upload.zip to the repository.
+# One-time setup: Settings > Pages > Build and deployment > Source = "GitHub Actions".
+name: Publish site
+on:
+  push:
+    paths: ["upload.zip"]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unpack the zip into _site
+        run: |
+          mkdir _unpack _site
+          unzip -q upload.zip -d _unpack
+          # The zip holds one folder (sumas-quiz-arena). Use its contents as the site root.
+          if [ "$(ls _unpack | wc -l)" = "1" ] && [ -d "_unpack/$(ls _unpack)" ]; then cp -a "_unpack/$(ls _unpack)/." _site/; else cp -a _unpack/. _site/; fi
+          test -f _site/index.html || { echo "index.html not found in the zip"; exit 1; }
+          rm -rf _site/tests _site/node_modules
+          touch _site/.nojekyll
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
