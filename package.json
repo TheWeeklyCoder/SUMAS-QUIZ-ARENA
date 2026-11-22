@@ -1,0 +1,9 @@
+{
+  "name": "sumas-quiz-arena",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/logic.test.js",
+    "serve": "npx --yes http-server . -p 5173 -c-1"
+  }
+}

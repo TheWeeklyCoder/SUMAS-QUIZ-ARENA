@@ -1,0 +1,29 @@
+{
+  "_note": "Edit these lines freely. We say 'missed', never 'failed'. Bands: low is under 50%, medium 50 to 79%, high 80% and above.",
+  "home": [
+    "Small steps every day beat one big push the night before.",
+    "Ten focused questions today is ten fewer surprises in the exam hall.",
+    "You don't have to be perfect. You just have to keep showing up.",
+    "Every question you miss now is a question you won't miss on exam day.",
+    "Consistency is your quiet superpower. Keep going.",
+    "Rest well, then come back and practise. Both matter."
+  ],
+  "low": [
+    "This one was tough, and that's exactly why you practised. Look at the questions you missed and try again.",
+    "Missing questions here means fewer missed questions in the exam. Review them and go again.",
+    "Everyone starts somewhere. Today you found what to work on, and that's progress.",
+    "Don't be discouraged. Retry the missed ones and watch your score climb."
+  ],
+  "medium": [
+    "Solid effort. You're closer than you think. Retry the missed ones to lock them in.",
+    "Good work. A little more practice on the topics you missed and you'll be flying.",
+    "You're building real understanding. Keep the streak going.",
+    "More than half right and rising. Review the explanations and go again."
+  ],
+  "high": [
+    "Excellent work. Your preparation is paying off.",
+    "Strong result. Keep this momentum going into the next set.",
+    "Sharp thinking. Check the few you missed and you'll be unstoppable.",
+    "That's exam-ready energy. Well done."
+  ]
+}
